@@ -1,0 +1,17 @@
+psycopg2
+mcp
+fastmcp
+pandas
+psycopg2-binary
+python-dotenv
+streamlit
+fastapi
+uvicorn[standard]
+websockets
+schedule
+redis
+celery
+openpyxl
+python-multipart
+jinja2
+aiofiles
