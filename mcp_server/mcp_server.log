@@ -1,0 +1,28 @@
+nohup: girdi yok sayılıyor
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                   🏌️ Starting Server → akilli-gmcp-raporlar                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────── 🌐 SERVER READY 🌐 ─────────────────────────────╮
+│                                                                              │
+│              🚀 🚀 Server starting on http://localhost:3000 🚀               │
+│              ⚡ Press Ctrl+C to stop ⚡                                      │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/websockets/legacy/__init__.py:6: DeprecationWarning: websockets.legacy is deprecated; see https://websockets.readthedocs.io/en/stable/howto/upgrade.html for upgrade instructions
+  warnings.warn(  # deprecated in 14.0 - 2024-11-09
+/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
+  from websockets.server import WebSocketServerProtocol
+INFO:     Started server process [3258857]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://localhost:3000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:43080 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40838 - "HEAD / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:40854 - "HEAD /sse HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:38834 - "HEAD /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57444 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51786 - "GET /health HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:41812 - "GET /docs HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58240 - "GET /api HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:33774 - "GET /sse HTTP/1.1" 200 OK

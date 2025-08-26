@@ -1,6 +1,6 @@
 {
   "name": "akilli-gmcp-raporlar",
   "description": "Akıllı GMCP Raporlar MCP Sunucusu - Gümrük ve lojistik operasyonları için veritabanı raporlama araçları",
-  "transport": "stdio",
+  "transport": "sse", 
   "version": "1.0.0"
 } 

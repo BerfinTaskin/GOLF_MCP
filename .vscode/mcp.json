@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "akilli-gmcp-raporlar": {
+      "command": "uv",
+      "args": ["run", "golf", "run"],
+      "cwd": "${workspaceFolder}/mcp_server"
+    }
+  }
+}
