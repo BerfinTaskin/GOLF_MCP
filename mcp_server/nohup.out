@@ -1,0 +1,64 @@
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                   🏌️ Starting Server → akilli-gmcp-raporlar                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭───────────────────────────── 🌐 SERVER READY 🌐 ─────────────────────────────╮
+│                                                                              │
+│              🚀 🚀 Server starting on http://localhost:3000 🚀               │
+│              ⚡ Press Ctrl+C to stop ⚡                                      │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/berfintskn/Smart_GMCP/mcp_server/dist/server.py", line 248, in <module>
+  |     mcp.run(transport="stdio", show_banner=False)
+  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/server.py", line 352, in run
+  |     anyio.run(
+  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_core/_eventloop.py", line 74, in run
+  |     return async_backend.run(func, args, {}, backend_options)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2316, in run
+  |     return runner.run(wrapper())
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+  |     return future.result()
+  |            ^^^^^^^^^^^^^^^
+  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2304, in wrapper
+  |     return await func(*args)
+  |            ^^^^^^^^^^^^^^^^^
+  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/server.py", line 327, in run_async
+  |     await self.run_stdio_async(
+  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/server.py", line 1444, in run_stdio_async
+  |     async with stdio_server() as (read_stream, write_stream):
+  |   File "/usr/lib/python3.12/contextlib.py", line 217, in __aexit__
+  |     await anext(self.gen)
+  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/stdio.py", line 85, in stdio_server
+  |     async with anyio.create_task_group() as tg:
+  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/stdio.py", line 63, in stdin_reader
+    |     async for line in stdin:
+    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_core/_fileio.py", line 83, in __aiter__
+    |     line = await self.readline()
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_core/_fileio.py", line 99, in readline
+    |     return await to_thread.run_sync(self._fp.readline)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    |     return await get_async_backend().run_sync_in_worker_thread(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2476, in run_sync_in_worker_thread
+    |     return await future
+    |            ^^^^^^^^^^^^
+    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
+    |     result = context.run(func, *args)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    | OSError: [Errno 9] Bad file descriptor
+    +------------------------------------
+
+💥 ✗ Server exited with error code 1

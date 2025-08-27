@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field
 from .common import run_report, format_dataframe_response, null_if_empty
 
 
-class GTIPReportResult(BaseModel):
-    """GTİP bazında beyanname raporu sorgusu sonucu."""
+class FirmaBeyannameleriGtipResult(BaseModel):
+    """Firma beyannameleri GTİP bazında rapor sorgusu sonucu."""
     
     rapor_adi: str
     durum: str
@@ -18,7 +18,7 @@ class GTIPReportResult(BaseModel):
     mesaj: Optional[str] = None
 
 
-async def firma_beyannameleri_gtip_bazinda_getir(
+async def firma_beyannameleri_gtip_bazinda_raporu_getir(
     firma: Annotated[
         str,
         Field(
@@ -61,19 +61,22 @@ async def firma_beyannameleri_gtip_bazinda_getir(
             default="",
         ),
     ] = "",
-) -> GTIPReportResult:
-    """GTİP kodlarına göre firma beyannamelerini analiz et.
+) -> FirmaBeyannameleriGtipResult:
+    """Firma beyannameleri için GTİP (Gümrük Tarife İstatistik Pozisyonu) bazında detaylı rapor getir.
     
-    Bu araç, gümrük beyannamelerini GTİP (Gümrük Tarife İstatistik Pozisyonu)
-    kodlarına göre gruplandırarak şunları sağlar:
-    - GTİP kodu bazında beyanname sayıları
-    - Ürün kategorisi analizleri
-    - İthalat/ihracat değer dağılımları
-    - Vergi ve harç hesaplamaları
-    - Ticaret istatistikleri
+    Bu araç, firma beyannameleri için şunları içeren GTİP bazlı analiz sağlar:
+    - GTİP kodları ve ticari açıklamalar
+    - Beyanname ve kalem bilgileri
+    - Stok numaraları ve miktar bilgileri
+    - Tutar ve döviz bilgileri
+    - Ağırlık ve birim bilgileri
+    - İstatistiki değerler ve CIF tutarları
+    - Vergi ve masraf detayları
+    - Ülke bilgileri (menşe, sevk, ticari)
+    - Fatura ve dekont bilgileri
     
-    Ticari analiz, pazar araştırması ve gümrük planlaması
-    için vazgeçilmez bir rapordur.
+    Gümrük operasyonları için GTİP bazlı istatistik, analiz ve raporlama
+    için kritik öneme sahiptir.
     """
     try:
         params = {
@@ -88,10 +91,10 @@ async def firma_beyannameleri_gtip_bazinda_getir(
         df = run_report("tum_sorgular/Firma_Beyannameleri_GTİP_Bazında_Rapor-POSTGRESQL.sql", params)
         result = format_dataframe_response(df, "Firma Beyannameleri GTİP Bazında Rapor")
         
-        return GTIPReportResult(**result)
+        return FirmaBeyannameleriGtipResult(**result)
         
     except Exception as e:
-        return GTIPReportResult(
+        return FirmaBeyannameleriGtipResult(
             rapor_adi="Firma Beyannameleri GTİP Bazında Rapor",
             durum="hata",
             satir_sayisi=0,
@@ -101,4 +104,4 @@ async def firma_beyannameleri_gtip_bazinda_getir(
 
 
 # Aracı dışa aktar
-export = firma_beyannameleri_gtip_bazinda_getir
+export = firma_beyannameleri_gtip_bazinda_raporu_getir

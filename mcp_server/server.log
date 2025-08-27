@@ -4,8 +4,8 @@ nohup: girdi yok sayılıyor
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭───────────────────────────── 🌐 SERVER READY 🌐 ─────────────────────────────╮
 │                                                                              │
-│              🚀 🚀 Server starting on http://localhost:3000 🚀               │
-│              ⚡ Press Ctrl+C to stop ⚡                                      │
+│               🚀 🚀 Server starting on http://0.0.0.0:3000 🚀                │
+│               ⚡ Press Ctrl+C to stop ⚡                                     │
 │                                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
@@ -13,33 +13,59 @@ nohup: girdi yok sayılıyor
   warnings.warn(  # deprecated in 14.0 - 2024-11-09
 /home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
   from websockets.server import WebSocketServerProtocol
-INFO:     Started server process [3258857]
+INFO:     Started server process [3361719]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://localhost:3000 (Press CTRL+C to quit)
-INFO:     127.0.0.1:43080 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:40838 - "HEAD / HTTP/1.1" 404 Not Found
-INFO:     127.0.0.1:40854 - "HEAD /sse HTTP/1.1" 401 Unauthorized
-INFO:     127.0.0.1:38834 - "HEAD /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:57444 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:51786 - "GET /health HTTP/1.1" 404 Not Found
-INFO:     127.0.0.1:41812 - "GET /docs HTTP/1.1" 404 Not Found
-INFO:     127.0.0.1:58240 - "GET /api HTTP/1.1" 404 Not Found
-INFO:     127.0.0.1:33774 - "GET /sse HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56116 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:54442 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:55816 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:53096 - "POST /mcp HTTP/1.1" 404 Not Found
-INFO:     172.22.10.39:40082 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:45304 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:59884 - "GET / HTTP/1.1" 404 Not Found
-INFO:     172.22.10.39:46054 - "GET /tools HTTP/1.1" 404 Not Found
-INFO:     172.22.10.39:48340 - "POST /tools/list HTTP/1.1" 404 Not Found
-INFO:     172.22.10.39:35644 - "GET /health HTTP/1.1" 404 Not Found
-INFO:     172.22.10.39:59098 - "POST /sse HTTP/1.1" 405 Method Not Allowed
-INFO:     172.22.10.39:39726 - "GET /tools/list HTTP/1.1" 404 Not Found
-INFO:     172.22.10.39:44218 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:44222 - "POST /messages/?session_id=6372ae72e30545f6a1db5474a8b3cad6 HTTP/1.1" 202 Accepted
+INFO:     Uvicorn running on http://0.0.0.0:3000 (Press CTRL+C to quit)
+INFO:     172.22.10.39:35514 - "HEAD /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:36622 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:36638 - "POST /messages/?session_id=1b18bc63f71541dea5491fc8b3116ce0 HTTP/1.1" 202 Accepted
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/authentication.py", line 48, in __call__
+    await self.app(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/auth/middleware/auth_context.py", line 43, in __call__
+    await self.app(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/http.py", line 99, in __call__
+    await self.app(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 462, in handle
+    await self.app(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/auth/middleware/bearer_auth.py", line 96, in __call__
+    await self.app(scope, receive, send)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/sse.py", line 249, in handle_post_message
+    await writer.send(session_message)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 243, in send
+    self.send_nowait(item)
+  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 212, in send_nowait
+    raise ClosedResourceError
+anyio.ClosedResourceError
+INFO:     172.22.10.39:41980 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.22.10.39:41996 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.22.10.39:42002 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.22.10.39:50378 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:50380 - "POST /messages/?session_id=5c7c94b7807347a09281fc560584d4a6 HTTP/1.1" 202 Accepted
 ERROR:    Exception in ASGI application
 Traceback (most recent call last):
   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
@@ -85,4 +111,6 @@ INFO:     Shutting down
 ERROR:    Cancel 0 running task(s), timeout graceful shutdown exceeded
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
-INFO:     Finished server process [3258857]
+INFO:     Finished server process [3361719]
+
+⚡ ⚠ Server exited with code -15

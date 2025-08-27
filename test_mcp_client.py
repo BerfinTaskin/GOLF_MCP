@@ -41,6 +41,7 @@ class MCPClient:
             "mcp_akilli-gmcp-r_arsiv_verileri",
             "mcp_akilli-gmcp-r_ayrintili_depo_hareket_raporu", 
             "mcp_akilli-gmcp-r_beyanname_bazinda_maliyet_raporu",
+            "mcp_akilli-gmcp-r_beyanname_islem_sureleri_raporu",
             "mcp_akilli-gmcp-r_calculator",
             "mcp_akilli-gmcp-r_depo_stok_miktarlari",
             "mcp_akilli-gmcp-r_genel_master_rapor",

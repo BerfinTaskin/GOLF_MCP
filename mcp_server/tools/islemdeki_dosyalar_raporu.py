@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 from .common import run_report, format_dataframe_response, null_if_empty
 
 
-class ProcessingFilesResult(BaseModel):
+class IslemdekiDosyalarResult(BaseModel):
     """İşlemdeki dosyalar raporu sorgusu sonucu."""
     
     rapor_adi: str
@@ -18,7 +18,7 @@ class ProcessingFilesResult(BaseModel):
     mesaj: Optional[str] = None
 
 
-async def islemdeki_dosyalar_raporu_getir(
+async def islemdeki_dosyalari_getir(
     firma: Annotated[
         str,
         Field(
@@ -54,18 +54,22 @@ async def islemdeki_dosyalar_raporu_getir(
             default="",
         ),
     ] = "",
-) -> ProcessingFilesResult:
-    """Şu anda işlemde olan dosyaları listele.
+) -> IslemdekiDosyalarResult:
+    """Aktif olarak işlemde olan gümrük dosyalarının detaylı listesini getir.
     
-    Bu araç, aktif olarak işlem gören dosyaları analiz ederek şunları sağlar:
-    - İşlemdeki dosya listesi
-    - İşlem aşamaları ve durumları
-    - Bekleme süreleri
-    - Sorumlu personel bilgileri
-    - Tamamlanma tahminleri
+    Bu araç, işlemdeki gümrük dosyaları için şunları içeren kapsamlı bilgileri sağlar:
+    - Dosya durumu ve işlem aşaması
+    - Beyanname bilgileri ve tescil durumu
+    - Fatura numaraları ve tarihleri
+    - Satıcı ve gümrük bilgileri
+    - Konşimento ve taşıma bilgileri
+    - ETA tarihleri ve sevk durumu
+    - İşlem süreleri ve tarih takibi
+    - Özet beyan numaraları
+    - Dosya türü ve arşivlenme durumu
     
-    Operasyonel takip, süreç yönetimi ve müşteri bilgilendirmesi
-    için vazgeçilmezdir.
+    Gümrük operasyonlarında aktif dosya takibi, süreç yönetimi ve
+    müşteri bilgilendirme için kritik öneme sahiptir.
     """
     try:
         params = {
@@ -79,10 +83,10 @@ async def islemdeki_dosyalar_raporu_getir(
         df = run_report("tum_sorgular/İşlemdeki_Dosyalar_Raporu-POSTGRESQL.sql", params)
         result = format_dataframe_response(df, "İşlemdeki Dosyalar Raporu")
         
-        return ProcessingFilesResult(**result)
+        return IslemdekiDosyalarResult(**result)
         
     except Exception as e:
-        return ProcessingFilesResult(
+        return IslemdekiDosyalarResult(
             rapor_adi="İşlemdeki Dosyalar Raporu",
             durum="hata",
             satir_sayisi=0,
@@ -92,4 +96,4 @@ async def islemdeki_dosyalar_raporu_getir(
 
 
 # Aracı dışa aktar
-export = islemdeki_dosyalar_raporu_getir
+export = islemdeki_dosyalari_getir

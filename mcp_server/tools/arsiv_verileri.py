@@ -1,12 +1,12 @@
-"""Gümrük ve lojistik operasyonları için arşiv verileri rapor aracı."""
+"""Arşiv verileri raporu aracı."""
 
-from typing import Annotated, Optional, Dict, Any
+from typing import Annotated, Optional
 from pydantic import BaseModel, Field
 from .common import run_report, format_dataframe_response, null_if_empty
 
 
-class ArchiveDataResult(BaseModel):
-    """Arşiv verileri sorgusu sonucu."""
+class ArsivVerileriResult(BaseModel):
+    """Arşiv verileri raporu sorgusu sonucu."""
     
     rapor_adi: str
     durum: str
@@ -30,14 +30,14 @@ async def arsiv_verilerini_getir(
         str,
         Field(
             description="Başlangıç tarihi YYYY-MM-DD formatında",
-            examples=["2024-01-01", "2025-01-01"],
+            examples=["2025-01-01", "2024-01-01"],
         ),
     ],
     tarih2: Annotated[
         str,
         Field(
             description="Bitiş tarihi YYYY-MM-DD formatında",
-            examples=["2024-06-01", "2025-06-30"],
+            examples=["2025-06-30", "2024-06-01"],
         ),
     ],
     solmazrefno: Annotated[
@@ -61,18 +61,25 @@ async def arsiv_verilerini_getir(
             default="",
         ),
     ] = "",
-) -> ArchiveDataResult:
-    """Bir firma için belirtilen tarih aralığındaki arşiv verilerini getir.
+) -> ArsivVerileriResult:
+    """Arşivlenmiş gümrük beyanname verilerinin kapsamlı listesini getir.
     
-    Bu araç, belirli bir firma için belirtilen tarih aralığında
-    arşivlenmiş gümrük ve lojistik verilerini alır. Referans numaraları
-    ve tescil numaraları kullanarak isteğe bağlı filtreler uygulanabilir.
+    Bu araç, arşivlenmiş gümrük beyannameleri için şunları içeren detaylı bilgileri sağlar:
+    - Beyanname referans numaraları ve seri bilgileri
+    - Tescil numaraları ve tarihleri
+    - Fatura numaraları ve detayları
+    - Manifesto ve konşimento bilgileri
+    - Tutar ve döviz bilgileri
+    - CIF değerleri (USD)
+    - Müşteri/karşı firma bilgileri
+    - Durum ve açıklama bilgileri
+    - Nakliyeci ve araç bilgileri
+    - Eşya yeri ve teslimat bilgileri
+    - Arşivlenme durumu
+    - Solmaz şube bilgileri
     
-    Şunları içeren yapılandırılmış veri döndürür:
-    - Firma arşiv kayıtları
-    - Belge bilgileri
-    - İşlem tarihleri ve durumları
-    - Referans numaraları ve tesciller
+    Geçmiş gümrük operasyonlarının analizi, audit süreçleri ve
+    tarihi veri raporlaması için kritik öneme sahiptir.
     """
     try:
         params = {
@@ -87,10 +94,10 @@ async def arsiv_verilerini_getir(
         df = run_report("tum_sorgular/Arşiv_Verileri-POSTGRESQL.sql", params)
         result = format_dataframe_response(df, "Arşiv Verileri Raporu")
         
-        return ArchiveDataResult(**result)
+        return ArsivVerileriResult(**result)
         
     except Exception as e:
-        return ArchiveDataResult(
+        return ArsivVerileriResult(
             rapor_adi="Arşiv Verileri Raporu",
             durum="hata",
             satir_sayisi=0,

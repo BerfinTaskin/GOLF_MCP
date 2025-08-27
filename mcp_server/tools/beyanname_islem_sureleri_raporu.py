@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 from .common import run_report, format_dataframe_response, null_if_empty
 
 
-class ProcessingTimeResult(BaseModel):
+class DeclarationProcessingTimesResult(BaseModel):
     """Beyanname işlem süreleri sorgusu sonucu."""
     
     rapor_adi: str
@@ -61,18 +61,24 @@ async def beyanname_islem_surelerini_getir(
             default="",
         ),
     ] = "",
-) -> ProcessingTimeResult:
-    """Gümrük beyannamelerinin işlem sürelerini analiz et.
+) -> DeclarationProcessingTimesResult:
+    """Beyanname işlem sürelerini ve zaman analizini getir.
     
-    Bu araç, gümrük beyannameleri için şunları içeren işlem süresi analizini sağlar:
-    - Beyanname başlangıç ve bitiş tarihleri
-    - Toplam işlem süreleri
-    - Aşama bazında süre dökümü
-    - Gecikme analizleri
-    - Verimlilik metrikleri
+    Bu araç, gümrük beyannameleri için detaylı işlem süreleri ve zaman analizi sağlar:
+    - Tescil tarihi ve saati
+    - İş emri tarihi
+    - Beyanname kapama tarihi
+    - Veznede tarihi
+    - Sevk tarihi
+    - Eşya sevk süresi (tescil ile sevk arasındaki gün)
+    - Fatura kesim tarihi
+    - Hat durumu (Kırmızı, Sarı, Mavi, Yeşil)
+    - Statü ve ek açıklamalar
+    - Gümrük idaresi bilgisi
+    - Fatura bilgileri (no, tarih, tutar, döviz)
     
-    Süreç optimizasyonu, performans ölçümü ve SLA takibi
-    için kritik önemdedir.
+    Operasyon verimliliği, süreç analizi ve müşteri hizmet kalitesi ölçümü
+    için kritik verileri sağlar.
     """
     try:
         params = {
@@ -87,10 +93,10 @@ async def beyanname_islem_surelerini_getir(
         df = run_report("tum_sorgular/Beyanname_İşlem_Süreleri_Raporu-POSTGRESQL.sql", params)
         result = format_dataframe_response(df, "Beyanname İşlem Süreleri Raporu")
         
-        return ProcessingTimeResult(**result)
+        return DeclarationProcessingTimesResult(**result)
         
     except Exception as e:
-        return ProcessingTimeResult(
+        return DeclarationProcessingTimesResult(
             rapor_adi="Beyanname İşlem Süreleri Raporu",
             durum="hata",
             satir_sayisi=0,

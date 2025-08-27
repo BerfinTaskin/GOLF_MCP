@@ -2,9 +2,11 @@
 
 import sys
 import os
+import json
 from typing import Dict, Any
 import pandas as pd
 import psycopg2
+import numpy as np
 from datetime import datetime
 
 # Ana proje klasöründen import etmek için üst dizini path'e ekle
@@ -65,10 +67,21 @@ except ImportError:
     def read_sql_file(file_path: str) -> str:
         """SQL sorgusunu dosyadan oku"""
         try:
+            # Dosya varlığını önce kontrol et
+            if not os.path.exists(file_path):
+                raise FileNotFoundError(f"{file_path} dosyası bulunamadı!")
+            
             with open(file_path, 'r', encoding='utf-8') as file:
-                return file.read()
+                content = file.read()
+                if not content.strip():
+                    raise ValueError(f"{file_path} dosyası boş!")
+                return content
         except FileNotFoundError:
-            raise FileNotFoundError(f"{file_path} dosyası bulunamadı!")
+            raise FileNotFoundError(f"SQL dosyası bulunamadı: {file_path}")
+        except UnicodeDecodeError as e:
+            raise ValueError(f"SQL dosyası encoding hatası ({file_path}): {str(e)}")
+        except Exception as e:
+            raise ValueError(f"SQL dosyası okuma hatası ({file_path}): {str(e)}")
 
 
 def null_if_empty(val):
@@ -78,24 +91,62 @@ def null_if_empty(val):
 
 def run_report(sql_path: str, params: Dict[str, Any]) -> pd.DataFrame:
     """Parametreli rapor sorgusunu çalıştır ve DataFrame döndür."""
-    # Yolu proje köküne göre ayarla
-    project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-    full_sql_path = os.path.join(project_root, sql_path)
-    
-    sql = read_sql_file(full_sql_path)
-    
-    # SQL'deki parametreleri değiştir
-    for key, value in params.items():
-        sql = sql.replace(key, str(value))
-    
-    # Sorguyu çalıştır
-    db = DatabaseConnection()
-    db.connect()
     try:
-        df = db.execute_query(sql)
-        return df
-    finally:
-        db.close()
+        # Yolu proje köküne göre ayarla - daha güvenli yol hesaplama
+        current_file = os.path.abspath(__file__)
+        tools_dir = os.path.dirname(current_file)  # mcp_server/tools
+        mcp_server_dir = os.path.dirname(tools_dir)  # mcp_server
+        project_root = os.path.dirname(mcp_server_dir)  # Smart_GMCP
+        
+        # Alternatif: direkt path kullanarak daha güvenli
+        full_sql_path = os.path.join(project_root, sql_path)
+        
+        # Path debug için log ekle
+        print(f"DEBUG: tools_dir={tools_dir}, project_root={project_root}, sql_path={sql_path}, full_path={full_sql_path}")
+        
+        # SQL dosyasını oku
+        sql = read_sql_file(full_sql_path)
+        
+        # SQL'deki parametreleri değiştir
+        for key, value in params.items():
+            sql = sql.replace(key, str(value))
+        
+        # Sorguyu çalıştır
+        db = DatabaseConnection()
+        db.connect()
+        try:
+            df = db.execute_query(sql)
+            return df
+        finally:
+            db.close()
+            
+    except FileNotFoundError as e:
+        print(f"SQL dosya hatası: {str(e)}")
+        raise
+    except ValueError as e:
+        print(f"SQL içerik hatası: {str(e)}")
+        raise
+    except Exception as e:
+        print(f"Genel rapor hatası: {str(e)}")
+        raise
+
+
+def safe_json_convert(obj):
+    """JSON serileştirme için güvenli dönüştürme."""
+    if isinstance(obj, (np.integer, int)):
+        return int(obj)
+    elif isinstance(obj, (np.floating, float)):
+        if np.isnan(obj) or np.isinf(obj):
+            return None
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif pd.isna(obj):
+        return None
+    elif isinstance(obj, (pd.Timestamp, datetime)):
+        return str(obj)
+    else:
+        return obj
 
 
 def format_dataframe_response(df: pd.DataFrame, report_name: str) -> Dict[str, Any]:
@@ -110,14 +161,39 @@ def format_dataframe_response(df: pd.DataFrame, report_name: str) -> Dict[str, A
         }
     
     # DataFrame'i JSON serileştirme için dict'e çevir
-    data = df.to_dict('records')
+    # NaN ve inf değerleri None'a çevir, float değerleri JSON uyumlu hale getir
+    df_clean = df.copy()
     
-    return {
+    # Tüm sütunları kontrol et ve JSON uyumlu hale getir
+    for col in df_clean.columns:
+        df_clean[col] = df_clean[col].apply(safe_json_convert)
+    
+    data = df_clean.to_dict('records')
+    
+    # Ekstra güvenlik: sonuçları JSON serileştirme testi yap
+    try:
+        json.dumps(data)
+    except Exception as e:
+        print(f"JSON serileştirme hatası: {e}")
+        # Hata durumunda tüm değerleri string'e çevir
+        data = df.astype(str).replace('nan', None).to_dict('records')
+    
+    result = {
         "rapor_adi": report_name,
         "durum": "basarili", 
-        "satir_sayisi": len(df),
+        "satir_sayisi": int(len(df)),
         "sutunlar": list(df.columns),
         "veri": data[:100] if len(data) > 100 else data,  # İlk 100 satırla sınırla
         "kesildi": len(data) > 100,
-        "toplam_satir": len(data)
+        "toplam_satir": int(len(data))
     }
+    
+    # Final JSON test
+    try:
+        json.dumps(result)
+        print(f"DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: {type(result['satir_sayisi'])}")
+    except Exception as e:
+        print(f"HATA: Final JSON serileştirme başarısız: {e}")
+        print(f"Problematik veri türleri: {[(k, type(v)) for k, v in result.items()]}")
+    
+    return result
