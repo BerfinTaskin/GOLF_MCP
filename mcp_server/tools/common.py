@@ -92,17 +92,17 @@ def null_if_empty(val):
 def run_report(sql_path: str, params: Dict[str, Any]) -> pd.DataFrame:
     """Parametreli rapor sorgusunu çalıştır ve DataFrame döndür."""
     try:
-        # Yolu proje köküne göre ayarla - daha güvenli yol hesaplama
+        # Proje dizin yapısını hesapla
         current_file = os.path.abspath(__file__)
-        tools_dir = os.path.dirname(current_file)  # mcp_server/tools
-        mcp_server_dir = os.path.dirname(tools_dir)  # mcp_server
-        project_root = os.path.dirname(mcp_server_dir)  # Smart_GMCP
+        tools_dir = os.path.dirname(current_file)      # mcp_server/tools
+        mcp_server_dir = os.path.dirname(tools_dir)    # mcp_server
+        project_root = os.path.dirname(mcp_server_dir) # Smart_GMCP
         
-        # Alternatif: direkt path kullanarak daha güvenli
-        full_sql_path = os.path.join(project_root, sql_path)
+        # SQL dosyasının tam yolunu oluştur
+        full_sql_path = os.path.join(mcp_server_dir, 'dist', sql_path)
         
-        # Path debug için log ekle
-        print(f"DEBUG: tools_dir={tools_dir}, project_root={project_root}, sql_path={sql_path}, full_path={full_sql_path}")
+        # Debug bilgisi
+        print(f"DEBUG: SQL dosya yolu - {full_sql_path}")
         
         # SQL dosyasını oku
         sql = read_sql_file(full_sql_path)

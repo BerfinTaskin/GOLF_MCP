@@ -60,7 +60,7 @@ async def stk_bazli_stok_kalan_gun_raporu_getir(
             "$tarih1": f"'{tarih1}'"
         }
         
-        df = run_report("tum_sorgular/STK_Bazlı_Stok_Kalan_Gün_Raporu__PALET-POSTGRESQL.sql", params)
+        df = run_report("tum_sorgular/STK_Bazlı_Stok_Kalan_Gün_Raporu-POSTGRESQL.sql", params)
         result = format_dataframe_response(df, "STK Bazlı Stok Kalan Gün Raporu")
         
         return StockRemainingDaysResult(**result)

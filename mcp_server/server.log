@@ -4,8 +4,8 @@ nohup: girdi yok sayılıyor
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ╭───────────────────────────── 🌐 SERVER READY 🌐 ─────────────────────────────╮
 │                                                                              │
-│               🚀 🚀 Server starting on http://0.0.0.0:3000 🚀                │
-│               ⚡ Press Ctrl+C to stop ⚡                                     │
+│              🚀 🚀 Server starting on http://localhost:3000 🚀               │
+│              ⚡ Press Ctrl+C to stop ⚡                                      │
 │                                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
@@ -13,104 +13,98 @@ nohup: girdi yok sayılıyor
   warnings.warn(  # deprecated in 14.0 - 2024-11-09
 /home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
   from websockets.server import WebSocketServerProtocol
-INFO:     Started server process [3361719]
+INFO:     Started server process [467384]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:3000 (Press CTRL+C to quit)
-INFO:     172.22.10.39:35514 - "HEAD /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:36622 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:36638 - "POST /messages/?session_id=1b18bc63f71541dea5491fc8b3116ce0 HTTP/1.1" 202 Accepted
-ERROR:    Exception in ASGI application
-Traceback (most recent call last):
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
-    result = await app(  # type: ignore[func-returns-value]
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
-    return await self.app(scope, receive, send)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
-    raise exc
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
-    await self.app(scope, receive, _send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/authentication.py", line 48, in __call__
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/auth/middleware/auth_context.py", line 43, in __call__
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/http.py", line 99, in __call__
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
-    await route.handle(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 462, in handle
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/auth/middleware/bearer_auth.py", line 96, in __call__
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/sse.py", line 249, in handle_post_message
-    await writer.send(session_message)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 243, in send
-    self.send_nowait(item)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 212, in send_nowait
-    raise ClosedResourceError
-anyio.ClosedResourceError
-INFO:     172.22.10.39:41980 - "POST /sse HTTP/1.1" 405 Method Not Allowed
-INFO:     172.22.10.39:41996 - "POST /sse HTTP/1.1" 405 Method Not Allowed
-INFO:     172.22.10.39:42002 - "POST /sse HTTP/1.1" 405 Method Not Allowed
-INFO:     172.22.10.39:50378 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:50380 - "POST /messages/?session_id=5c7c94b7807347a09281fc560584d4a6 HTTP/1.1" 202 Accepted
-ERROR:    Exception in ASGI application
-Traceback (most recent call last):
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
-    result = await app(  # type: ignore[func-returns-value]
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
-    return await self.app(scope, receive, send)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
-    raise exc
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
-    await self.app(scope, receive, _send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/authentication.py", line 48, in __call__
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/auth/middleware/auth_context.py", line 43, in __call__
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/http.py", line 99, in __call__
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
-    await route.handle(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/starlette/routing.py", line 462, in handle
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/auth/middleware/bearer_auth.py", line 96, in __call__
-    await self.app(scope, receive, send)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/sse.py", line 249, in handle_post_message
-    await writer.send(session_message)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 243, in send
-    self.send_nowait(item)
-  File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 212, in send_nowait
-    raise ClosedResourceError
-anyio.ClosedResourceError
-INFO:     Shutting down
-ERROR:    Cancel 0 running task(s), timeout graceful shutdown exceeded
-INFO:     Waiting for application shutdown.
-INFO:     Application shutdown complete.
-INFO:     Finished server process [3361719]
+INFO:     Uvicorn running on http://localhost:3000 (Press CTRL+C to quit)
+INFO:     172.22.10.39:39090 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:47240 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:47248 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:47262 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:47248 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:47278 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:47280 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:38184 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:38184 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:54696 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:54696 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+Personalization failed: Elicitation failed: Method not found
+INFO:     172.22.10.39:56944 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
 
-⚡ ⚠ Server exited with code -15
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 71 sütunlu 27229 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
+INFO:     172.22.10.39:44324 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 71 sütunlu 5974 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
+INFO:     172.22.10.39:59144 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Beyanname_Bazinda_Maliyet_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Beyanname_Bazinda_Maliyet_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 169 sütunlu 160 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
+INFO:     172.22.10.39:51836 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 66 sütunlu 282 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
+INFO:     172.22.10.39:49604 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Kullanılabilir_Stok_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Kullanılabilir_Stok_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 15 sütunlu 191 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
+INFO:     172.22.10.39:59316 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Beyanname_İşlem_Süreleri_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Beyanname_İşlem_Süreleri_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 23 sütunlu 162 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
+INFO:     172.22.10.39:34910 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/STK_Bazlı_Stok_Kalan_Gün_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/STK_Bazlı_Stok_Kalan_Gün_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 13 sütunlu 282 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
+INFO:     172.16.34.254:49520 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.16.34.254:49521 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.16.34.254:49522 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:49523 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:49524 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:49526 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:49525 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
+Merhaba GTIP Test...
+INFO:     172.16.34.254:49606 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted

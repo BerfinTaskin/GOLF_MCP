@@ -1,3 +1,4 @@
+nohup: girdi yok sayılıyor
 ╭──────────────────────────────────────────────────────────────────────────────╮
 │                   🏌️ Starting Server → akilli-gmcp-raporlar                   │
 ╰──────────────────────────────────────────────────────────────────────────────╯
@@ -8,57 +9,63 @@
 │                                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
-  + Exception Group Traceback (most recent call last):
-  |   File "/home/berfintskn/Smart_GMCP/mcp_server/dist/server.py", line 248, in <module>
-  |     mcp.run(transport="stdio", show_banner=False)
-  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/server.py", line 352, in run
-  |     anyio.run(
-  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_core/_eventloop.py", line 74, in run
-  |     return async_backend.run(func, args, {}, backend_options)
-  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2316, in run
-  |     return runner.run(wrapper())
-  |            ^^^^^^^^^^^^^^^^^^^^^
-  |   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
-  |     return self._loop.run_until_complete(task)
-  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  |   File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
-  |     return future.result()
-  |            ^^^^^^^^^^^^^^^
-  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2304, in wrapper
-  |     return await func(*args)
-  |            ^^^^^^^^^^^^^^^^^
-  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/server.py", line 327, in run_async
-  |     await self.run_stdio_async(
-  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/fastmcp/server/server.py", line 1444, in run_stdio_async
-  |     async with stdio_server() as (read_stream, write_stream):
-  |   File "/usr/lib/python3.12/contextlib.py", line 217, in __aexit__
-  |     await anext(self.gen)
-  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/stdio.py", line 85, in stdio_server
-  |     async with anyio.create_task_group() as tg:
-  |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
-  |     raise BaseExceptionGroup(
-  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
-  +-+---------------- 1 ----------------
-    | Traceback (most recent call last):
-    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/mcp/server/stdio.py", line 63, in stdin_reader
-    |     async for line in stdin:
-    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_core/_fileio.py", line 83, in __aiter__
-    |     line = await self.readline()
-    |            ^^^^^^^^^^^^^^^^^^^^^
-    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_core/_fileio.py", line 99, in readline
-    |     return await to_thread.run_sync(self._fp.readline)
-    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
-    |     return await get_async_backend().run_sync_in_worker_thread(
-    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2476, in run_sync_in_worker_thread
-    |     return await future
-    |            ^^^^^^^^^^^^
-    |   File "/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 967, in run
-    |     result = context.run(func, *args)
-    |              ^^^^^^^^^^^^^^^^^^^^^^^^
-    | OSError: [Errno 9] Bad file descriptor
-    +------------------------------------
-
-💥 ✗ Server exited with error code 1
+/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/websockets/legacy/__init__.py:6: DeprecationWarning: websockets.legacy is deprecated; see https://websockets.readthedocs.io/en/stable/howto/upgrade.html for upgrade instructions
+  warnings.warn(  # deprecated in 14.0 - 2024-11-09
+/home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
+  from websockets.server import WebSocketServerProtocol
+INFO:     Started server process [398175]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://localhost:3000 (Press CTRL+C to quit)
+INFO:     172.22.10.39:39548 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:43992 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:50874 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:50884 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:50898 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:50884 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:50900 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:50916 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:38342 - "POST /call-tool HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:38358 - "POST /call-tool HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:38360 - "POST /call-tool HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:58066 - "POST /call-tool HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:58076 - "POST /call-tool HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:58082 - "POST /call-tool HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:41804 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:41818 - "POST /messages/?session_id=fe96f6336bfe452ea9189418e7ace2b2 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:41824 - "POST /messages/?session_id=fe96f6336bfe452ea9189418e7ace2b2 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:56224 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:56224 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:46714 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:46714 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+Personalization failed: Elicitation failed: Method not found
+INFO:     172.22.10.39:35316 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+DEBUG: Requested SQL file: tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
+DEBUG: Mapped to actual file: Genel_Master_Rapor-POSTGRESQL.sql
+DEBUG: SQL base directory: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular
+DEBUG: Full SQL path: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
+DEBUG: File exists: False
+DEBUG: Available SQL files in directory: ['ayrintili_depo_hareket_raporu-POSTGRESQL.sql', 'islemdeki_dosyalar_raporu-POSTGRESQL.sql', 'genel_master_rapor-POSTGRESQL.sql', 'firma_beyannameleri_gtip_bazinda_rapor-POSTGRESQL.sql', 'gönderi_sorgulama_lokasyon_raporu-POSTGRESQL.sql', 'beyanname_islem_süreleri_raporu-POSTGRESQL.sql', 'is_emri_listesi-POSTGRESQL.sql', 'gün_bazli_antrepo_stok_durumu-POSTGRESQL.sql', 'stk_bazli_stok_kalan_gun_raporu-POSTGRESQL.sql', 'beyanname_bazinda_maliyet_raporu-POSTGRESQL.sql', 'kumulatif_depo_hareket_raporu-POSTGRESQL.sql', 'depo_stok_miktarlari-POSTGRESQL.sql', 'arsiv_verileri-POSTGRESQL.sql', 'kullanilabilir_stok_raporu-POSTGRESQL.sql']
+SQL dosya hatası: SQL dosyası bulunamadı: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
+INFO:     172.22.10.39:42230 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+DEBUG: Requested SQL file: tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql
+DEBUG: Mapped to actual file: Depo_Stok_Miktarları-POSTGRESQL.sql
+DEBUG: SQL base directory: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular
+DEBUG: Full SQL path: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql
+DEBUG: File exists: False
+DEBUG: Available SQL files in directory: ['ayrintili_depo_hareket_raporu-POSTGRESQL.sql', 'islemdeki_dosyalar_raporu-POSTGRESQL.sql', 'genel_master_rapor-POSTGRESQL.sql', 'firma_beyannameleri_gtip_bazinda_rapor-POSTGRESQL.sql', 'gönderi_sorgulama_lokasyon_raporu-POSTGRESQL.sql', 'beyanname_islem_süreleri_raporu-POSTGRESQL.sql', 'is_emri_listesi-POSTGRESQL.sql', 'gün_bazli_antrepo_stok_durumu-POSTGRESQL.sql', 'stk_bazli_stok_kalan_gun_raporu-POSTGRESQL.sql', 'beyanname_bazinda_maliyet_raporu-POSTGRESQL.sql', 'kumulatif_depo_hareket_raporu-POSTGRESQL.sql', 'depo_stok_miktarlari-POSTGRESQL.sql', 'arsiv_verileri-POSTGRESQL.sql', 'kullanilabilir_stok_raporu-POSTGRESQL.sql']
+SQL dosya hatası: SQL dosyası bulunamadı: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql
+INFO:     172.22.10.39:53578 - "POST /messages/?session_id=e50f2c25db8441979c90d44af88d5505 HTTP/1.1" 202 Accepted
+DEBUG: Requested SQL file: tum_sorgular/Beyanname_Bazinda_Maliyet_Raporu-POSTGRESQL.sql
+DEBUG: Mapped to actual file: Beyanname_Bazinda_Maliyet_Raporu-POSTGRESQL.sql
+DEBUG: SQL base directory: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular
+DEBUG: Full SQL path: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Beyanname_Bazinda_Maliyet_Raporu-POSTGRESQL.sql
+DEBUG: File exists: False
+DEBUG: Available SQL files in directory: ['ayrintili_depo_hareket_raporu-POSTGRESQL.sql', 'islemdeki_dosyalar_raporu-POSTGRESQL.sql', 'genel_master_rapor-POSTGRESQL.sql', 'firma_beyannameleri_gtip_bazinda_rapor-POSTGRESQL.sql', 'gönderi_sorgulama_lokasyon_raporu-POSTGRESQL.sql', 'beyanname_islem_süreleri_raporu-POSTGRESQL.sql', 'is_emri_listesi-POSTGRESQL.sql', 'gün_bazli_antrepo_stok_durumu-POSTGRESQL.sql', 'stk_bazli_stok_kalan_gun_raporu-POSTGRESQL.sql', 'beyanname_bazinda_maliyet_raporu-POSTGRESQL.sql', 'kumulatif_depo_hareket_raporu-POSTGRESQL.sql', 'depo_stok_miktarlari-POSTGRESQL.sql', 'arsiv_verileri-POSTGRESQL.sql', 'kullanilabilir_stok_raporu-POSTGRESQL.sql']
+SQL dosya hatası: SQL dosyası bulunamadı: /home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Beyanname_Bazinda_Maliyet_Raporu-POSTGRESQL.sql
+INFO:     172.22.10.39:49706 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:49714 - "POST /messages/?session_id=1b5aded6c931404daf4266aa753c0ad0 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49730 - "POST /messages/?session_id=1b5aded6c931404daf4266aa753c0ad0 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49714 - "POST /messages/?session_id=1b5aded6c931404daf4266aa753c0ad0 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49732 - "POST /messages/?session_id=1b5aded6c931404daf4266aa753c0ad0 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49748 - "POST /messages/?session_id=1b5aded6c931404daf4266aa753c0ad0 HTTP/1.1" 202 Accepted
