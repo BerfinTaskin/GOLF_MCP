@@ -1,35 +1,121 @@
 nohup: girdi yok sayılıyor
-╭──────────────────────────────────────────────────────────────────────────────╮
-│                   🏌️ Starting Server → akilli-gmcp-raporlar                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
-╭───────────────────────────── 🌐 SERVER READY 🌐 ─────────────────────────────╮
-│                                                                              │
-│              🚀 🚀 Server starting on http://localhost:3000 🚀               │
-│              ⚡ Press Ctrl+C to stop ⚡                                      │
-│                                                                              │
-╰──────────────────────────────────────────────────────────────────────────────╯
-
 /home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/websockets/legacy/__init__.py:6: DeprecationWarning: websockets.legacy is deprecated; see https://websockets.readthedocs.io/en/stable/howto/upgrade.html for upgrade instructions
   warnings.warn(  # deprecated in 14.0 - 2024-11-09
 /home/berfintskn/Smart_GMCP/.venv/lib/python3.12/site-packages/uvicorn/protocols/websockets/websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
   from websockets.server import WebSocketServerProtocol
-INFO:     Started server process [467384]
+INFO:     Started server process [1066964]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://localhost:3000 (Press CTRL+C to quit)
-INFO:     172.22.10.39:39090 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:47240 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:47248 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:47262 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:47248 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:47278 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:47280 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:38184 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:38184 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:54696 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:54696 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:46388 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:36246 - "GET /health HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:36252 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:42840 - "GET /sse HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50856 - "POST /messages/569a47142b1a4eca8ebdb5d9b4729e22 HTTP/1.1" 400 Bad Request
+INFO:     172.16.34.254:62570 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.16.34.254:62571 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.16.34.254:62572 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:62573 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:62574 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:62575 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:62576 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:62601 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:62607 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:62613 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:62620 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/İşlemdeki_Dosyalar_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/İşlemdeki_Dosyalar_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Veritabanı hatası: column "ref001" does not exist
+LINE 135:   AND ( REF001   IS NULL OR b.referans LIKE '%' || REF001::V...
+                  ^
+
+
+Veritabanı bağlantısı kapatıldı.
+Genel rapor hatası: column "ref001" does not exist
+LINE 135:   AND ( REF001   IS NULL OR b.referans LIKE '%' || REF001::V...
+                  ^
+
+INFO:     172.16.34.254:62623 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 66 sütunlu 276 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 20183 karakter, 15 satır, 66 sütun
+INFO:     172.16.34.254:62628 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Veritabanı hatası: column "fat001" does not exist
+LINE 196:     AND ( FAT001    IS NULL OR ( b.fatevrno    = FAT001   ) ...
+                    ^
+HINT:  Perhaps you meant to reference the column "a.fatnot".
+
+
+Veritabanı bağlantısı kapatıldı.
+Genel rapor hatası: column "fat001" does not exist
+LINE 196:     AND ( FAT001    IS NULL OR ( b.fatevrno    = FAT001   ) ...
+                    ^
+HINT:  Perhaps you meant to reference the column "a.fatnot".
+
+INFO:     172.16.34.254:62637 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 71 sütunlu 91650 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 31304 karakter, 15 satır, 71 sütun
+INFO:     172.16.34.254:62706 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/İş_Emri_Listesi-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/İş_Emri_Listesi-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 20 sütunlu 1461 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 28698 karakter, 35 satır, 20 sütun
+INFO:     172.16.34.254:62745 - "POST /messages/?session_id=bc6f2d874a4246c28fdc28bfd028feb3 HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Ayrıntılı_Depo_Hareket_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Ayrıntılı_Depo_Hareket_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 39 sütunlu 879 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 16241 karakter, 15 satır, 39 sütun
+INFO:     127.0.0.1:59620 - "GET /Account/v.1.0/PrivacySettings?clientId=135333107684344109 HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:43490 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:43492 - "POST /messages/?session_id=ff0ed96858c74e6e8900aa33c913d562 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:43506 - "POST /messages/?session_id=ff0ed96858c74e6e8900aa33c913d562 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:43492 - "POST /messages/?session_id=ff0ed96858c74e6e8900aa33c913d562 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:43512 - "POST /messages/?session_id=ff0ed96858c74e6e8900aa33c913d562 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:43522 - "POST /messages/?session_id=ff0ed96858c74e6e8900aa33c913d562 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49566 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:49568 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49582 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49568 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49598 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:49606 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:44844 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:44860 - "POST /messages/?session_id=660fe1c850c340e3a70672f47acea250 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:44868 - "POST /messages/?session_id=660fe1c850c340e3a70672f47acea250 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:60468 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:60468 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:60482 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:60482 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
 Personalization failed: Elicitation failed: Method not found
-INFO:     172.22.10.39:56944 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:53584 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
 DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
 
 Veritabanına bağlanılıyor...
@@ -38,38 +124,18 @@ Sorgu 71 sütunlu 27229 satır döndürdü
 
 Veritabanı bağlantısı kapatıldı.
 JSON serileştirme hatası: Object of type Decimal is not JSON serializable
-DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
-INFO:     172.22.10.39:44324 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Genel_Master_Rapor-POSTGRESQL.sql
-
-Veritabanına bağlanılıyor...
-Bağlantı başarılı!
-Sorgu 71 sütunlu 5974 satır döndürdü
-
-Veritabanı bağlantısı kapatıldı.
-JSON serileştirme hatası: Object of type Decimal is not JSON serializable
-DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
-INFO:     172.22.10.39:59144 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: Response boyutu: 30134 karakter, 15 satır, 71 sütun
+INFO:     172.22.10.39:60068 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
 DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Beyanname_Bazinda_Maliyet_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Beyanname_Bazinda_Maliyet_Raporu-POSTGRESQL.sql
 
 Veritabanına bağlanılıyor...
 Bağlantı başarılı!
-Sorgu 169 sütunlu 160 satır döndürdü
+Sorgu 169 sütunlu 1745 satır döndürdü
 
 Veritabanı bağlantısı kapatıldı.
 JSON serileştirme hatası: Object of type Decimal is not JSON serializable
-DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
-INFO:     172.22.10.39:51836 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql
-
-Veritabanına bağlanılıyor...
-Bağlantı başarılı!
-Sorgu 66 sütunlu 282 satır döndürdü
-
-Veritabanı bağlantısı kapatıldı.
-JSON serileştirme hatası: Object of type Decimal is not JSON serializable
-DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
-INFO:     172.22.10.39:49604 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: Response boyutu: 59056 karakter, 15 satır, 169 sütun
+INFO:     172.22.10.39:57006 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
 DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Kullanılabilir_Stok_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Kullanılabilir_Stok_Raporu-POSTGRESQL.sql
 
 Veritabanına bağlanılıyor...
@@ -78,41 +144,134 @@ Sorgu 15 sütunlu 191 satır döndürdü
 
 Veritabanı bağlantısı kapatıldı.
 JSON serileştirme hatası: Object of type Decimal is not JSON serializable
-DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
-INFO:     172.22.10.39:59316 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
-DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Beyanname_İşlem_Süreleri_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Beyanname_İşlem_Süreleri_Raporu-POSTGRESQL.sql
-
-Veritabanına bağlanılıyor...
-Bağlantı başarılı!
-Sorgu 23 sütunlu 162 satır döndürdü
-
-Veritabanı bağlantısı kapatıldı.
-JSON serileştirme hatası: Object of type Decimal is not JSON serializable
-DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
-INFO:     172.22.10.39:34910 - "POST /messages/?session_id=5868a1b3a7d144ea828dd17f9f1d0c0e HTTP/1.1" 202 Accepted
+DEBUG: Response boyutu: 13352 karakter, 40 satır, 15 sütun
+INFO:     172.22.10.39:33654 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
 DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/STK_Bazlı_Stok_Kalan_Gün_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/STK_Bazlı_Stok_Kalan_Gün_Raporu-POSTGRESQL.sql
 
 Veritabanına bağlanılıyor...
 Bağlantı başarılı!
-Sorgu 13 sütunlu 282 satır döndürdü
+Sorgu 13 sütunlu 276 satır döndürdü
 
 Veritabanı bağlantısı kapatıldı.
 JSON serileştirme hatası: Object of type Decimal is not JSON serializable
-DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: <class 'int'>
-INFO:     172.16.34.254:49520 - "POST /sse HTTP/1.1" 405 Method Not Allowed
-INFO:     172.16.34.254:49521 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.16.34.254:49522 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
-INFO:     172.16.34.254:49523 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
-INFO:     172.16.34.254:49524 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
-INFO:     172.16.34.254:49526 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
-INFO:     172.16.34.254:49525 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
-Merhaba GTIP Test...
-INFO:     172.16.34.254:49606 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
-INFO:     172.16.34.254:52736 - "GET /sse HTTP/1.1" 401 Unauthorized
-INFO:     172.16.34.254:52736 - "GET /favicon.ico HTTP/1.1" 404 Not Found
-INFO:     172.22.10.39:44194 - "GET /sse HTTP/1.1" 200 OK
-INFO:     172.22.10.39:44204 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:44218 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:44204 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:44222 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
-INFO:     172.22.10.39:44228 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
+DEBUG: Response boyutu: 11147 karakter, 40 satır, 13 sütun
+INFO:     172.22.10.39:39412 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Beyanname_İşlem_Süreleri_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Beyanname_İşlem_Süreleri_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 23 sütunlu 1748 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 20454 karakter, 25 satır, 23 sütun
+INFO:     172.22.10.39:41420 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:57344 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Gün_Bazlı_Antrepo_Stok_Durumu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Gün_Bazlı_Antrepo_Stok_Durumu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 34 sütunlu 96 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 14371 karakter, 15 satır, 34 sütun
+INFO:     172.22.10.39:46836 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Kümülatif_Depo_Hareket_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Kümülatif_Depo_Hareket_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 38 sütunlu 1301 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 17478 karakter, 15 satır, 38 sütun
+INFO:     172.22.10.39:49098 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/İş_Emri_Listesi-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/İş_Emri_Listesi-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 20 sütunlu 701 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 28929 karakter, 35 satır, 20 sütun
+INFO:     172.22.10.39:32842 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Gönderi_Sorgulama_Lokasyon_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Gönderi_Sorgulama_Lokasyon_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 12 sütunlu 694 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 16330 karakter, 40 satır, 12 sütun
+INFO:     172.22.10.39:44000 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Ayrıntılı_Depo_Hareket_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Ayrıntılı_Depo_Hareket_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 39 sütunlu 4 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 4782 karakter, 4 satır, 39 sütun
+INFO:     172.22.10.39:52630 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Arşiv_Verileri-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Arşiv_Verileri-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 25 sütunlu 1775 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 19230 karakter, 25 satır, 25 sütun
+INFO:     172.22.10.39:52640 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/İşlemdeki_Dosyalar_Raporu-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/İşlemdeki_Dosyalar_Raporu-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 31 sütunlu 40 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 13087 karakter, 15 satır, 31 sütun
+INFO:     172.22.10.39:52640 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Depo_Stok_Miktarları-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 66 sütunlu 274 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 20183 karakter, 15 satır, 66 sütun
+INFO:     172.22.10.39:52640 - "POST /messages/?session_id=60c0da2c150b4d54aeb69c200f04626d HTTP/1.1" 202 Accepted
+DEBUG: tools_dir=/home/berfintskn/Smart_GMCP/mcp_server/dist/components/tools, project_root=/home/berfintskn/Smart_GMCP, sql_path=tum_sorgular/Firma_Beyannameleri_GTİP_Bazında_Rapor-POSTGRESQL.sql, full_path=/home/berfintskn/Smart_GMCP/mcp_server/dist/tum_sorgular/Firma_Beyannameleri_GTİP_Bazında_Rapor-POSTGRESQL.sql
+
+Veritabanına bağlanılıyor...
+Bağlantı başarılı!
+Sorgu 213 sütunlu 3285 satır döndürdü
+
+Veritabanı bağlantısı kapatıldı.
+JSON serileştirme hatası: Object of type Decimal is not JSON serializable
+DEBUG: Response boyutu: 78453 karakter, 15 satır, 213 sütun
+INFO:     172.16.34.254:51792 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.16.34.254:51794 - "GET /sse HTTP/1.1" 401 Unauthorized
+INFO:     172.16.34.254:51796 - "GET /.well-known/oauth-authorization-server HTTP/1.1" 404 Not Found
+INFO:     172.16.34.254:51797 - "GET /.well-known/openid-configuration HTTP/1.1" 404 Not Found
+INFO:     172.16.34.254:51798 - "GET /.well-known/openid-configuration HTTP/1.1" 404 Not Found
+INFO:     172.16.34.254:51799 - "POST /register HTTP/1.1" 404 Not Found
+INFO:     172.16.34.254:50166 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.16.34.254:50167 - "GET /sse HTTP/1.1" 401 Unauthorized
+INFO:     172.16.34.254:50168 - "GET /.well-known/oauth-authorization-server HTTP/1.1" 404 Not Found
+INFO:     172.16.34.254:50169 - "GET /.well-known/openid-configuration HTTP/1.1" 404 Not Found
+INFO:     172.16.34.254:50170 - "GET /.well-known/openid-configuration HTTP/1.1" 404 Not Found
+INFO:     172.16.34.254:50171 - "POST /register HTTP/1.1" 404 Not Found
+INFO:     172.16.34.254:59335 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.16.34.254:59336 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.16.34.254:59337 - "POST /messages/?session_id=00b5cf4e29e24a35b55f5157ef0b7dd5 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:59338 - "POST /messages/?session_id=00b5cf4e29e24a35b55f5157ef0b7dd5 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:59339 - "POST /messages/?session_id=00b5cf4e29e24a35b55f5157ef0b7dd5 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:59340 - "POST /messages/?session_id=00b5cf4e29e24a35b55f5157ef0b7dd5 HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:56496 - "POST /messages/?session_id=00b5cf4e29e24a35b55f5157ef0b7dd5 HTTP/1.1" 202 Accepted

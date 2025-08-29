@@ -149,7 +149,53 @@ def safe_json_convert(obj):
         return obj
 
 
-def format_dataframe_response(df: pd.DataFrame, report_name: str) -> Dict[str, Any]:
+def calculate_optimal_rows(df: pd.DataFrame) -> int:
+    """DataFrame karakteristiklerine göre optimal satır sayısını hesapla."""
+    column_count = len(df.columns)
+    
+    # Sütun sayısına göre adaptif satır sınırı
+    if column_count > 30:
+        return 15
+    elif column_count > 20:
+        return 25
+    elif column_count > 15:
+        return 35
+    elif column_count > 10:
+        return 40
+    else:
+        return 50
+
+
+def format_summary_response(df: pd.DataFrame, report_name: str) -> Dict[str, Any]:
+    """Büyük datasets için özet yanıt formatla."""
+    if df.empty:
+        return format_dataframe_response(df, report_name)
+    
+    # Sayısal sütunlar için istatistik
+    numeric_cols = df.select_dtypes(include=[np.number]).columns
+    summary_stats = {}
+    
+    for col in numeric_cols:
+        summary_stats[col] = {
+            "toplam": safe_json_convert(df[col].sum()),
+            "ortalama": safe_json_convert(df[col].mean()),
+            "min": safe_json_convert(df[col].min()),
+            "max": safe_json_convert(df[col].max())
+        }
+    
+    return {
+        "rapor_adi": f"{report_name} (Özet)",
+        "durum": "basarili",
+        "satir_sayisi": int(len(df)),
+        "sutunlar": list(df.columns),
+        "istatistikler": summary_stats,
+        "ilk_5_satir": df.head(5).apply(lambda col: col.apply(safe_json_convert)).to_dict('records'),
+        "son_5_satir": df.tail(5).apply(lambda col: col.apply(safe_json_convert)).to_dict('records') if len(df) > 5 else [],
+        "ozet_modu": True
+    }
+
+
+def format_dataframe_response(df: pd.DataFrame, report_name: str, max_rows: int = None) -> Dict[str, Any]:
     """DataFrame'i yapılandırılmış yanıt olarak formatla."""
     if df.empty:
         return {
@@ -178,20 +224,47 @@ def format_dataframe_response(df: pd.DataFrame, report_name: str) -> Dict[str, A
         # Hata durumunda tüm değerleri string'e çevir
         data = df.astype(str).replace('nan', None).to_dict('records')
     
+    # Adaptif satır sayısı hesapla
+    if max_rows is None:
+        adaptive_max_rows = calculate_optimal_rows(df)
+    else:
+        adaptive_max_rows = max_rows
+    
+    column_count = len(df.columns)
+    
+    # Response boyutunu kontrol et ve gerekirse daha da azalt
+    limited_data = data[:adaptive_max_rows] if len(data) > adaptive_max_rows else data
+    
     result = {
         "rapor_adi": report_name,
         "durum": "basarili", 
         "satir_sayisi": int(len(df)),
         "sutunlar": list(df.columns),
-        "veri": data[:100] if len(data) > 100 else data,  # İlk 100 satırla sınırla
-        "kesildi": len(data) > 100,
-        "toplam_satir": int(len(data))
+        "veri": limited_data,
+        "kesildi": len(data) > adaptive_max_rows,
+        "toplam_satir": int(len(data)),
+        "gosterilen_satir": len(limited_data)
     }
     
-    # Final JSON test
+    # Response boyutu kontrolü
     try:
-        json.dumps(result)
-        print(f"DEBUG: Başarılı JSON serileştirme, satir_sayisi tipi: {type(result['satir_sayisi'])}")
+        result_json = json.dumps(result)
+        result_size = len(result_json)
+        print(f"DEBUG: Response boyutu: {result_size} karakter, {len(limited_data)} satır, {column_count} sütun")
+        
+        # Eğer hala çok büyükse daha da azalt (25K token = ~100K karakter civarı)
+        if result_size > 80000:  # Conservative limit for token safety
+            new_max = max(10, len(limited_data) // 2)
+            print(f"UYARI: Response çok büyük ({result_size}), satır sayısı {len(limited_data)} -> {new_max} azaltılıyor")
+            result["veri"] = data[:new_max]
+            result["gosterilen_satir"] = new_max
+            result["kesildi"] = True
+            
+            # Eğer hala büyükse özet moduna geç
+            if len(json.dumps(result)) > 80000:
+                print("UYARI: Özet moduna geçiliyor - veri çok büyük")
+                return format_summary_response(df, report_name)
+            
     except Exception as e:
         print(f"HATA: Final JSON serileştirme başarısız: {e}")
         print(f"Problematik veri türleri: {[(k, type(v)) for k, v in result.items()]}")
