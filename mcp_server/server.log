@@ -108,3 +108,11 @@ INFO:     172.16.34.254:49526 - "POST /messages/?session_id=25ffdbb5705f4edeb0b0
 INFO:     172.16.34.254:49525 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
 Merhaba GTIP Test...
 INFO:     172.16.34.254:49606 - "POST /messages/?session_id=25ffdbb5705f4edeb0b04bdee429e4cb HTTP/1.1" 202 Accepted
+INFO:     172.16.34.254:52736 - "GET /sse HTTP/1.1" 401 Unauthorized
+INFO:     172.16.34.254:52736 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     172.22.10.39:44194 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.22.10.39:44204 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:44218 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:44204 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:44222 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
+INFO:     172.22.10.39:44228 - "POST /messages/?session_id=1daa6312f46342a6bdbf057f5fe3c7c1 HTTP/1.1" 202 Accepted
